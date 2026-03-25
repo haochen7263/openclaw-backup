@@ -1,0 +1,526 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.3.13",
+    "lastTouchedAt": "2026-03-25T12:23:48.625Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-03-23T10:16:48.741Z",
+    "lastRunVersion": "2026.3.13",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  },
+  "browser": {
+    "enabled": true,
+    "defaultProfile": "openclaw"
+  },
+  "auth": {
+    "profiles": {
+      "openrouter:default": {
+        "provider": "openrouter",
+        "mode": "api_key"
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "openrouter/stepfun/step-3.5-flash:free",
+        "fallbacks": []
+      },
+      "models": {
+        "openrouter/auto": {
+          "alias": "OpenRouter"
+        },
+        "openrouter/stepfun/step-3.5-flash:free": {},
+        "openrouter/qwen/qwen3-4b:free": {}
+      },
+      "workspace": "/Users/mac/.openclaw/workspace",
+      "memorySearch": {
+        "enabled": false,
+        "sources": [
+          "memory"
+        ],
+        "chunking": {
+          "tokens": 250,
+          "overlap": 60
+        },
+        "query": {
+          "maxResults": 10,
+          "minScore": 0.15,
+          "hybrid": {
+            "enabled": true,
+            "vectorWeight": 0.75,
+            "textWeight": 0.25,
+            "candidateMultiplier": 8,
+            "mmr": {
+              "enabled": true,
+              "lambda": 0.7
+            }
+          }
+        }
+      },
+      "compaction": {
+        "mode": "safeguard",
+        "memoryFlush": {
+          "enabled": true,
+          "softThresholdTokens": 40000
+        }
+      },
+      "heartbeat": {
+        "every": "1m"
+      }
+    },
+    "list": [
+      {
+        "id": "main",
+        "default": true,
+        "name": "主助手",
+        "workspace": "/Users/mac/.openclaw/workspace-main",
+        "skills": [
+          "feishu-bitable",
+          "feishu-calendar",
+          "feishu-channel-rules",
+          "feishu-create-doc",
+          "feishu-fetch-doc",
+          "feishu-im-read",
+          "feishu-task",
+          "feishu-troubleshoot",
+          "feishu-update-doc",
+          "1password",
+          "apple-notes",
+          "apple-reminders",
+          "bear-notes",
+          "blogwatcher",
+          "blucli",
+          "bluebubbles",
+          "camsnap",
+          "clawhub",
+          "coding-agent",
+          "discord",
+          "eightctl",
+          "gemini",
+          "gh-issues",
+          "gifgrep",
+          "github",
+          "gog",
+          "goplaces",
+          "healthcheck",
+          "himalaya",
+          "imsg",
+          "mcporter",
+          "model-usage",
+          "nano-banana-pro",
+          "nano-pdf",
+          "node-connect",
+          "notion",
+          "obsidian",
+          "openai-image-gen",
+          "openai-whisper",
+          "openai-whisper-api",
+          "openhue",
+          "oracle",
+          "ordercli",
+          "peekaboo",
+          "sag",
+          "session-logs",
+          "sherpa-onnx-tts",
+          "skill-creator",
+          "slack",
+          "songsee",
+          "sonoscli",
+          "spotify-player",
+          "summarize",
+          "things-mac",
+          "tmux",
+          "trello",
+          "video-frames",
+          "voice-call",
+          "wacli",
+          "weather",
+          "xurl",
+          "agent-framework-azure-ai-py",
+          "self-improvement",
+          "baidu-search",
+          "csv-data-summarizer",
+          "freeUnlimited-websearch",
+          "marketing-mode",
+          "memory-cn",
+          "pdf-creator",
+          "proactive-agent",
+          "self-improving-agent",
+          "skill-vetter",
+          "easy-openclaw"
+        ]
+      },
+      {
+        "id": "hr",
+        "name": "HR 大姐头",
+        "workspace": "/Users/mac/.openclaw/workspace-hr",
+        "model": {
+          "primary": "openrouter/stepfun/step-3.5-flash:free",
+          "fallbacks": []
+        }
+      },
+      {
+        "id": "ceo",
+        "name": "Ceo",
+        "workspace": "/Users/mac/.openclaw/workspace-ceo"
+      },
+      {
+        "id": "product_manager",
+        "name": "产品经理",
+        "workspace": "/Users/mac/.openclaw/workspace-product_manager"
+      },
+      {
+        "id": "full_stack",
+        "name": "技术全栈",
+        "workspace": "/Users/mac/.openclaw/workspace-full_stack"
+      },
+      {
+        "id": "ui_designer",
+        "name": "UI 设计师",
+        "workspace": "/Users/mac/.openclaw/workspace-ui_designer"
+      },
+      {
+        "id": "marketing_expert",
+        "name": "营销专家",
+        "workspace": "/Users/mac/.openclaw/workspace-marketing_expert"
+      },
+      {
+        "id": "data_analyst",
+        "name": "数据分析师",
+        "workspace": "/Users/mac/.openclaw/workspace-data_analyst"
+      },
+      {
+        "id": "operation_maintenance",
+        "name": "运营与维护",
+        "workspace": "/Users/mac/.openclaw/workspace-operation_maintenance"
+      }
+    ]
+  },
+  "tools": {
+    "profile": "full",
+    "sessions": {
+      "visibility": "all"
+    },
+    "agentToAgent": {
+      "enabled": true
+    }
+  },
+  "bindings": [
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "feishu",
+        "accountId": "default"
+      }
+    },
+    {
+      "agentId": "hr",
+      "match": {
+        "channel": "feishu",
+        "accountId": "hr"
+      }
+    },
+    {
+      "agentId": "ceo",
+      "match": {
+        "channel": "feishu",
+        "accountId": "ceo"
+      }
+    },
+    {
+      "agentId": "product_manager",
+      "match": {
+        "channel": "feishu",
+        "accountId": "product_manager"
+      }
+    },
+    {
+      "agentId": "full_stack",
+      "match": {
+        "channel": "feishu",
+        "accountId": "full_stack"
+      }
+    },
+    {
+      "agentId": "ui_designer",
+      "match": {
+        "channel": "feishu",
+        "accountId": "ui_designer"
+      }
+    },
+    {
+      "agentId": "marketing_expert",
+      "match": {
+        "channel": "feishu",
+        "accountId": "marketing_expert"
+      }
+    },
+    {
+      "agentId": "data_analyst",
+      "match": {
+        "channel": "feishu",
+        "accountId": "data_analyst"
+      }
+    },
+    {
+      "agentId": "operation_maintenance",
+      "match": {
+        "channel": "feishu",
+        "accountId": "operation_maintenance"
+      }
+    }
+  ],
+  "messages": {
+    "ackReactionScope": "all"
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true,
+    "ownerDisplay": "raw"
+  },
+  "session": {
+    "dmScope": "per-account-channel-peer",
+    "store": "~/.openclaw/sessions/openclaw-sessions.json"
+  },
+  "channels": {
+    "feishu": {
+      "enabled": true,
+      "threadSession": true,
+      "replyMode": "auto",
+      "domain": "feishu",
+      "connectionMode": "websocket",
+      "streaming": true,
+      "footer": {
+        "elapsed": true,
+        "status": true
+      },
+      "appId": "cli_a94904d4717a9bc4",
+      "appSecret": "41IkxOzoG8jH3d1HEtq3MdHXmp8ROvMs",
+      "accounts": {
+        "default": {
+          "appId": "cli_a94904d4717a9bc4",
+          "appSecret": "41IkxOzoG8jH3d1HEtq3MdHXmp8ROvMs",
+          "botName": "主助手",
+          "workspace": "workspace-main",
+          "dmPolicy": "allowlist",
+          "allowFrom": [
+            "ou_131fc44e8622fa7e0cfd957a25431948",
+            "ou_3f8f8243f7cf1583a95b83ae4646667b",
+            "ou_5728d57bc6be44317f4cd80a7f49eaf5",
+            "ou_e06a4ab6cca4a52af001a565da0e5f72",
+            "ou_fcf09f58a9ba21672c9a87ffe2d62676",
+            "ou_090278ad2d2f9dedd0011b5b2bd4f77c",
+            "ou_e91f3567c09bd10f763daaa6d2828676",
+            "ou_ae880372a05090462f0836a2f6c44288",
+            "ou_dc99f73d4ffe76d6901b87fc6a38b01b",
+            "ou_4023d40145fca1eafe69ea5b543adbf7"
+          ]
+        },
+        "hr": {
+          "appId": "cli_a94b3e20dd38dbef",
+          "appSecret": "__OPENCLAW_REDACTED__",
+          "botName": "HR 大姐头",
+          "dmPolicy": "allowlist",
+          "allowFrom": [
+            "ou_3f8f8243f7cf1583a95b83ae4646667b",
+            "ou_5728d57bc6be44317f4cd80a7f49eaf5",
+            "ou_e06a4ab6cca4a52af001a565da0e5f72",
+            "ou_fcf09f58a9ba21672c9a87ffe2d62676",
+            "ou_090278ad2d2f9dedd0011b5b2bd4f77c",
+            "ou_e91f3567c09bd10f763daaa6d2828676",
+            "ou_ae880372a05090462f0836a2f6c44288",
+            "ou_dc99f73d4ffe76d6901b87fc6a38b01b",
+            "ou_4023d40145fca1eafe69ea5b543adbf7"
+          ]
+        },
+        "ceo": {
+          "appId": "cli_a94b3830fc781bd2",
+          "appSecret": "__OPENCLAW_REDACTED__",
+          "botName": "Ceo",
+          "dmPolicy": "allowlist",
+          "allowFrom": [
+            "ou_3f8f8243f7cf1583a95b83ae4646667b",
+            "ou_5728d57bc6be44317f4cd80a7f49eaf5",
+            "ou_e06a4ab6cca4a52af001a565da0e5f72",
+            "ou_fcf09f58a9ba21672c9a87ffe2d62676",
+            "ou_090278ad2d2f9dedd0011b5b2bd4f77c",
+            "ou_e91f3567c09bd10f763daaa6d2828676",
+            "ou_ae880372a05090462f0836a2f6c44288",
+            "ou_dc99f73d4ffe76d6901b87fc6a38b01b",
+            "ou_4023d40145fca1eafe69ea5b543adbf7"
+          ]
+        },
+        "product_manager": {
+          "appId": "cli_a94b3eb0f5b8dbb3",
+          "appSecret": "__OPENCLAW_REDACTED__",
+          "botName": "产品经理",
+          "dmPolicy": "allowlist",
+          "allowFrom": [
+            "ou_3f8f8243f7cf1583a95b83ae4646667b",
+            "ou_5728d57bc6be44317f4cd80a7f49eaf5",
+            "ou_e06a4ab6cca4a52af001a565da0e5f72",
+            "ou_fcf09f58a9ba21672c9a87ffe2d62676",
+            "ou_090278ad2d2f9dedd0011b5b2bd4f77c",
+            "ou_e91f3567c09bd10f763daaa6d2828676",
+            "ou_ae880372a05090462f0836a2f6c44288",
+            "ou_dc99f73d4ffe76d6901b87fc6a38b01b",
+            "ou_4023d40145fca1eafe69ea5b543adbf7"
+          ]
+        },
+        "full_stack": {
+          "appId": "cli_a94b3ee3bcf9dbc9",
+          "appSecret": "__OPENCLAW_REDACTED__",
+          "botName": "技术全栈",
+          "dmPolicy": "allowlist",
+          "allowFrom": [
+            "ou_3f8f8243f7cf1583a95b83ae4646667b",
+            "ou_5728d57bc6be44317f4cd80a7f49eaf5",
+            "ou_e06a4ab6cca4a52af001a565da0e5f72",
+            "ou_fcf09f58a9ba21672c9a87ffe2d62676",
+            "ou_090278ad2d2f9dedd0011b5b2bd4f77c",
+            "ou_e91f3567c09bd10f763daaa6d2828676",
+            "ou_ae880372a05090462f0836a2f6c44288",
+            "ou_dc99f73d4ffe76d6901b87fc6a38b01b",
+            "ou_4023d40145fca1eafe69ea5b543adbf7"
+          ]
+        },
+        "ui_designer": {
+          "appId": "cli_a94b3f3eeff8dbc6",
+          "appSecret": "__OPENCLAW_REDACTED__",
+          "botName": "UI 设计师",
+          "dmPolicy": "allowlist",
+          "allowFrom": [
+            "ou_3f8f8243f7cf1583a95b83ae4646667b",
+            "ou_5728d57bc6be44317f4cd80a7f49eaf5",
+            "ou_e06a4ab6cca4a52af001a565da0e5f72",
+            "ou_fcf09f58a9ba21672c9a87ffe2d62676",
+            "ou_090278ad2d2f9dedd0011b5b2bd4f77c",
+            "ou_e91f3567c09bd10f763daaa6d2828676",
+            "ou_ae880372a05090462f0836a2f6c44288",
+            "ou_dc99f73d4ffe76d6901b87fc6a38b01b",
+            "ou_4023d40145fca1eafe69ea5b543adbf7"
+          ]
+        },
+        "marketing_expert": {
+          "appId": "cli_a94b3f747eb8dbc3",
+          "appSecret": "__OPENCLAW_REDACTED__",
+          "botName": "营销专家",
+          "dmPolicy": "allowlist",
+          "allowFrom": [
+            "ou_3f8f8243f7cf1583a95b83ae4646667b",
+            "ou_5728d57bc6be44317f4cd80a7f49eaf5",
+            "ou_e06a4ab6cca4a52af001a565da0e5f72",
+            "ou_fcf09f58a9ba21672c9a87ffe2d62676",
+            "ou_090278ad2d2f9dedd0011b5b2bd4f77c",
+            "ou_e91f3567c09bd10f763daaa6d2828676",
+            "ou_ae880372a05090462f0836a2f6c44288",
+            "ou_dc99f73d4ffe76d6901b87fc6a38b01b",
+            "ou_4023d40145fca1eafe69ea5b543adbf7"
+          ]
+        },
+        "data_analyst": {
+          "appId": "cli_a94b3f8ee7b8dbde",
+          "appSecret": "__OPENCLAW_REDACTED__",
+          "botName": "数据分析师",
+          "dmPolicy": "allowlist",
+          "allowFrom": [
+            "ou_3f8f8243f7cf1583a95b83ae4646667b",
+            "ou_5728d57bc6be44317f4cd80a7f49eaf5",
+            "ou_e06a4ab6cca4a52af001a565da0e5f72",
+            "ou_fcf09f58a9ba21672c9a87ffe2d62676",
+            "ou_090278ad2d2f9dedd0011b5b2bd4f77c",
+            "ou_e91f3567c09bd10f763daaa6d2828676",
+            "ou_ae880372a05090462f0836a2f6c44288",
+            "ou_dc99f73d4ffe76d6901b87fc6a38b01b",
+            "ou_4023d40145fca1eafe69ea5b543adbf7"
+          ]
+        },
+        "operation_maintenance": {
+          "appId": "cli_a94b3ffbfdb85bd3",
+          "appSecret": "__OPENCLAW_REDACTED__",
+          "botName": "运营与维护",
+          "dmPolicy": "allowlist",
+          "allowFrom": [
+            "ou_3f8f8243f7cf1583a95b83ae4646667b",
+            "ou_5728d57bc6be44317f4cd80a7f49eaf5",
+            "ou_e06a4ab6cca4a52af001a565da0e5f72",
+            "ou_fcf09f58a9ba21672c9a87ffe2d62676",
+            "ou_090278ad2d2f9dedd0011b5b2bd4f77c",
+            "ou_e91f3567c09bd10f763daaa6d2828676",
+            "ou_ae880372a05090462f0836a2f6c44288",
+            "ou_dc99f73d4ffe76d6901b87fc6a38b01b",
+            "ou_4023d40145fca1eafe69ea5b543adbf7"
+          ]
+        }
+      }
+    }
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "__OPENCLAW_REDACTED__"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    }
+  },
+  "skills": {
+    "load": {
+      "extraDirs": [
+        "/Users/mac/.openclaw/extensions/openclaw-medical-skills/skills"
+      ]
+    }
+  },
+  "plugins": {
+    "allow": [
+      "openclaw-lark",
+      "agent-reach"
+    ],
+    "entries": {
+      "feishu": {
+        "enabled": false
+      },
+      "openclaw-lark": {
+        "enabled": true
+      },
+      "agent-reach": {
+        "enabled": true
+      }
+    },
+    "installs": {
+      "openclaw-lark": {
+        "source": "npm",
+        "spec": "@larksuite/openclaw-lark@2026.3.18",
+        "installPath": "/Users/mac/.openclaw/extensions/openclaw-lark",
+        "version": "2026.3.18",
+        "resolvedName": "@larksuite/openclaw-lark",
+        "resolvedVersion": "2026.3.18",
+        "resolvedSpec": "@larksuite/openclaw-lark@2026.3.18",
+        "integrity": "sha512-9qqO0a1HQ+2E9jvob/13jf1ZDfe39vzr7SgYFgtNc/ajv+jFaC7sweONyPZbiQ22CF+lIWb4FvSve74ev0Irnw==",
+        "shasum": "5358c445b0fcfc65e99462b2a15c755bf39919f8",
+        "resolvedAt": "2026-03-23T17:47:23.603Z",
+        "installedAt": "2026-03-23T17:48:44.921Z"
+      },
+      "agent-reach": {
+        "source": "npm",
+        "spec": "agent-reach",
+        "installPath": "/Users/mac/.openclaw/extensions/agent-reach",
+        "version": "0.3.4",
+        "resolvedName": "agent-reach",
+        "resolvedVersion": "0.3.4",
+        "resolvedSpec": "agent-reach@0.3.4",
+        "integrity": "sha512-MePjsiCBkmPoQQLY/EAavlBjTkptbcKblNfmCUvhuAzYuLhhRCYlnMtND4jRZjlQP3sd1Ksevk0PgEWG1zXbFQ==",
+        "shasum": "a327a1f5510a23c96d2702e75a7e1d55158d78e8",
+        "resolvedAt": "2026-03-25T12:10:44.592Z",
+        "installedAt": "2026-03-25T12:11:50.695Z"
+      }
+    }
+  }
+}
