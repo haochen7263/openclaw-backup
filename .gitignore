@@ -1,0 +1,37 @@
+# Sub-repos (each has its own git)
+/workspace-*/
+/extensions/*
+/workspace/*/.git
+
+# Sensitive (never backup to cloud)
+/credentials/
+/devices/paired.json
+
+# Runtime (can be regenerated)
+/media/
+/logs/
+/completions/
+/canvas/
+/sessions/
+/cron/
+
+# Temporary and backups
+*.tmp
+*.bak
+*.backup-*
+openclaw.json.backup*
+personal-model-config.json
+response-optimizer-config.json
+update-check.json
+
+# Other state dirs that are large/transient
+agency-agents/
+agents/
+backups/
+browser/
+config-backups/
+config-modifications.log
+identity/
+memory/
+user-profile/
+voice-wakeup/
